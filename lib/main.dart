@@ -32,6 +32,7 @@ class _QuizPageState extends State<QuizPage> {
     'Approximately one quarter of human bones are in the feet.',
     'A slug\'s blood is green.'
   ];
+  List<bool> answers = [false, true, true];
   int tracker = 0;
 
   @override
@@ -70,13 +71,13 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                bool correctAnswer = answers[tracker];
+                if (correctAnswer) {
+                  print("Right!");
+                } else {
+                  print("Wrong!");
+                }
                 setState(() {
-                  scoreKeeper.add(
-                    Icon(
-                      Icons.check,
-                      color: Colors.green,
-                    ),
-                  );
                   tracker++;
                 });
               },
@@ -96,13 +97,13 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                bool correctAnswer = answers[tracker];
+                if (correctAnswer) {
+                  print("Wrong!");
+                } else {
+                  print("Right!");
+                }
                 setState(() {
-                  scoreKeeper.add(
-                    Icon(
-                      Icons.close,
-                      color: Colors.red,
-                    ),
-                  );
                   tracker++;
                 });
               },
