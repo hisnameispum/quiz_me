@@ -32,6 +32,8 @@ class _QuizPageState extends State<QuizPage> {
     'Approximately one quarter of human bones are in the feet.',
     'A slug\'s blood is green.'
   ];
+  int tracker = 0;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -44,7 +46,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                questions[Random().nextInt(3)],
+                questions[tracker],
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -75,6 +77,7 @@ class _QuizPageState extends State<QuizPage> {
                       color: Colors.green,
                     ),
                   );
+                  tracker++;
                 });
               },
             ),
@@ -100,6 +103,7 @@ class _QuizPageState extends State<QuizPage> {
                       color: Colors.red,
                     ),
                   );
+                  tracker++;
                 });
               },
             ),
